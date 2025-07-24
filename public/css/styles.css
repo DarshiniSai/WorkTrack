@@ -1,0 +1,194 @@
+body {
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+.container {
+  max-width: 900px;
+}
+.login-container {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.left-section {
+  padding: 30px;
+  background-color: #fff;
+}
+.right-section {
+  background-color: #6f42c1;
+  color: #fff;
+  padding-left: 1px;
+  padding-right: 0px;
+  display: flex;
+  align-items: right;
+  justify-content: right;
+  position: relative;
+}
+.right-section img {
+  max-width: 100%;
+  height: auto;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #6f42c1;
+}
+.form-label {
+  font-weight: 500;
+}
+.btn-signin {
+  background-color: #6f42c1;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  width: 100%;
+}
+.btn-signin:hover {
+  background-color: #563d7c;
+}
+.btn-google {
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  color: #495057;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.btn-google:hover {
+  background-color: #f8f9fa;
+}
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+.signup-link {
+  color: #6f42c1;
+  text-decoration: none;
+}
+.signup-link:hover {
+  text-decoration: underline;
+}
+.forgot-password {
+  color: #6f42c1;
+  text-decoration: none;
+}
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  height: 100vh;
+  margin: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f8f9fa;
+}
+.container {
+  max-width: 900px;
+}
+.login-container {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+}
+.left-section {
+  padding: 40px;
+  background-color: #fff;
+}
+.right-section {
+  background-color: #6f42c1;
+  color: #fff;
+  padding-left: 2px;
+  padding-right: 0px;
+  padding-top: 0px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+.right-section img {
+  max-width: 100%;
+  height: auto;
+}
+.logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: #6f42c1;
+}
+.form-label {
+  font-weight: 500;
+}
+.btn-signin {
+  background-color: #6f42c1;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  width: 100%;
+}
+.btn-signin:hover {
+  background-color: #563d7c;
+}
+.btn-google {
+  border: 1px solid #ced4da;
+  background-color: #fff;
+  color: #495057;
+  padding: 10px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.btn-google:hover {
+  background-color: #f8f9fa;
+}
+.google-icon {
+  width: 20px;
+  height: 20px;
+}
+.signup-link {
+  color: #6f42c1;
+  text-decoration: none;
+}
+.signup-link:hover {
+  text-decoration: underline;
+}
+.forgot-password {
+  color: #6f42c1;
+  text-decoration: none;
+}
+.forgot-password:hover {
+  text-decoration: underline;
+}
+
+.toast {
+  padding: 12px 20px;
+  border-radius: 4px;
+  color: #fff;
+  margin-bottom: 10px;
+  font-weight: 500;
+  animation: fadein 0.5s, fadeout 0.5s 2.5s;
+}
+
+.toast.success { background-color: #28a745; }
+.toast.error { background-color: #dc3545; }
+
+@keyframes fadein {
+  from { opacity: 0; right: 0; }
+  to { opacity: 1; right: 20px; }
+}
+@keyframes fadeout {
+  from { opacity: 1; right: 20px; }
+  to { opacity: 0; right: 0; }
+}
