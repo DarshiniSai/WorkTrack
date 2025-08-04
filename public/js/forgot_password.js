@@ -4,7 +4,7 @@ async function sendOTP() {
   if (!email) return showToast("Please enter a valid email", "error");
   console.log("sendOTP function revoked");
 
-  const res = await fetch("http://localhost:5000/api/forgot-password", {
+  const res = await fetch(`${BACKEND_URL}/api/forgot-password`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email }),
@@ -38,7 +38,7 @@ async function verifyOTP() {
     return showToast("All fields are required", "error");
   }
 
-  const res = await fetch("http://localhost:5000/api/verify-otp", {
+  const res = await fetch(`${BACKEND_URL}/api/verify-otp`, {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({ email, otp, newPassword }),
