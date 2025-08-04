@@ -5,7 +5,7 @@ let tasks = [];
 
 async function fetchTasks() {
   try {
-    const res = await fetch(`http://localhost:5000/api/tasks/user/${userId}`);
+    const res = await fetch(`${BACKEND_URL}/api/tasks/user/${userId}`);
     tasks = await res.json();
     renderTasks(tasks);
   } catch (err) {
@@ -46,7 +46,7 @@ function formatInputDate(dateString) {
 
 async function markCompleted(taskId) {
   try {
-    const res = await fetch(`http://localhost:5000/api/tasks/status/${taskId}`, {
+    const res = await fetch(`${BACKEND_URL}/api/tasks/status/${taskId}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status: "Completed" })
