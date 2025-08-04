@@ -24,7 +24,7 @@ async function fetchAttendance() {
 
   try {
     const res = await fetch(
-      `http://localhost:5000/api/attendance/user/${userId}?month=${month}&year=${year}`
+      `${BACKEND_URL}/api/attendance/user/${userId}?month=${month}&year=${year}`
     );
     if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
     const data = await res.json();
@@ -63,7 +63,7 @@ function formatDate(dateString) {
 
 async function checkIn() {
   try {
-    const res = await fetch("http://localhost:5000/api/attendance/checkin", {
+    const res = await fetch(`${BACKEND_URL}/api/attendance/checkin`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user_id: userId }),
@@ -80,7 +80,7 @@ async function checkIn() {
 
 async function checkOut() {
   try {
-    const res = await fetch("http://localhost:5000/api/attendance/checkout", {
+    const res = await fetch(`${BACKEND_URL}/api/attendance/checkout`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ user_id: userId }),
