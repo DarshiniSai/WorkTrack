@@ -49,7 +49,7 @@ async function loadPayrolls() {
   previewCard.classList.add("d-none");
 
   try {
-    const statusRes = await fetch(`http://localhost:5000/api/payrolls/status?month=${month}&year=${year}`);
+    const statusRes = await fetch(`${BACKEND_URL}/api/payrolls/status?month=${month}&year=${year}`);
     const { alreadyGenerated } = await statusRes.json();
 
     if (!alreadyGenerated) {
@@ -60,7 +60,7 @@ async function loadPayrolls() {
       return;
     }
 
-    const res = await fetch(`http://localhost:5000/api/payrolls?month=${month}&year=${year}`);
+    const res = await fetch(`${BACKEND_URL}/api/payrolls?month=${month}&year=${year}`);
     const data = await res.json();
 
     payrollStatusMessage.className = "alert alert-success";
@@ -97,14 +97,14 @@ document.getElementById("generateForm").addEventListener("submit", async e => {
   const bonus = parseFloat(document.getElementById("bonus").value) || 0;
 
   try {
-    const statusRes = await fetch(`http://localhost:5000/api/payrolls/status?month=${month}&year=${year}`);
+    const statusRes = await fetch(`${BACKEND_URL}/api/payrolls/status?month=${month}&year=${year}`);
     const { alreadyGenerated } = await statusRes.json();
     if (alreadyGenerated) {
       alert(`Payroll for ${getMonthName(month)} ${year} is already generated.`);
       return;
     }
 
-    const res = await fetch(`http://localhost:5000/api/payrolls/preview?month=${month}&year=${year}&bonus=${bonus}`);
+    const res = await fetch(`${BACKEND_URL}/api/payrolls/preview?month=${month}&year=${year}&bonus=${bonus}`);
     const data = await res.json();
 
     if (!Array.isArray(data)) throw new Error("Invalid data");
@@ -151,7 +151,7 @@ async function confirmGenerate() {
   }));
 
   try {
-    const res = await fetch("http://localhost:5000/api/payrolls/generate", {
+    const res = await fetch(`${BACKEND_URL}/api/payrolls/generate`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(dataToSave)
