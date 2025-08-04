@@ -58,7 +58,7 @@ function renderLeaveCards(leaves) {
 async function fetchLeaveRequests() {
   try {
     const res = await fetch(
-      `http://localhost:5000/api/leave-requests/user/${userId}`
+      `${BACKEND_URL}/api/leave-requests/user/${userId}`
     );
     const data = await res.json();
     renderLeaveCards(data);
@@ -83,7 +83,7 @@ async function submitLeaveRequest(event) {
   const reason = document.getElementById("leaveReason").value;
 
   try {
-    const res = await fetch("http://localhost:5000/api/leave-requests", {
+    const res = await fetch(`${BACKEND_URL}/api/leave-requests`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({
@@ -133,7 +133,7 @@ function editLeave(id) {
 
     try {
       const res = await fetch(
-        `http://localhost:5000/api/leave-requests/${id}`,
+        `${BACKEND_URL}/api/leave-requests/${id}`,
         {
           method: "PUT",
           headers: { "Content-Type": "application/json" },
@@ -156,7 +156,7 @@ function editLeave(id) {
 async function deleteLeave(id) {
   if (!confirm("Are you sure you want to delete this leave request?")) return;
   try {
-    const res = await fetch(`http://localhost:5000/api/leave-requests/${id}`, {
+    const res = await fetch(`${BACKEND_URL}/api/leave-requests/${id}`, {
       method: "DELETE",
     });
 
