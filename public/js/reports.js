@@ -3,10 +3,10 @@ const reportCards = document.getElementById('reportCards');
 async function loadReportData() {
   try {
     const [empCountRes, deptCountRes, leaveSummaryRes, distRes] = await Promise.all([
-      fetch('http://localhost:5000/api/employees/count'),
-      fetch('http://localhost:5000/api/departments/count'),
-      fetch('http://localhost:5000/api/leave-requests/summary'),
-      fetch('http://localhost:5000/api/employees/distribution')
+      fetch(`${BACKEND_URL}/api/employees/count`),
+      fetch(`${BACKEND_URL}/api/departments/count`),
+      fetch(`${BACKEND_URL}/api/leave-requests/summary`),
+      fetch(`${BACKEND_URL}/api/employees/distribution`)
     ]);
 
     if (!empCountRes.ok || !deptCountRes.ok || !leaveSummaryRes.ok || !distRes.ok) {
