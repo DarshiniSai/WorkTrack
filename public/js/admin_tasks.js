@@ -13,7 +13,7 @@ window.addEventListener("DOMContentLoaded", () => {
 });
 
 async function loadEmployees() {
-  const res = await fetch("http://localhost:5000/api/employees");
+  const res = await fetch(`${BACKEND_URL}/api/employees`);
   employees = await res.json();
 
   const empSelects = [document.getElementById("assignTo"), document.getElementById("filterEmployee")];
@@ -39,7 +39,7 @@ async function loadTasks() {
   const filterStatus = document.getElementById("filterStatus").value;
 
   try {
-    const res = await fetch("http://localhost:5000/api/tasks/all-tasks");
+    const res = await fetch(`${BACKEND_URL}/api/tasks/all-tasks`);
     const data = await res.json();
 
     tasks = data.filter(task => {
@@ -97,8 +97,8 @@ async function saveTask(e) {
 
   try {
     const url = id
-      ? `http://localhost:5000/api/tasks/${id}`
-      : `http://localhost:5000/api/tasks`;
+      ? `${BACKEND_URL}/api/tasks/${id}`
+      : `${BACKEND_URL}/api/tasks`;
     const method = id ? "PUT" : "POST";
 
     const res = await fetch(url, {
@@ -135,7 +135,7 @@ async function deleteTask(id) {
   if (!confirm("Are you sure you want to delete this task?")) return;
 
   try {
-    const res = await fetch(`http://localhost:5000/api/tasks/${id}`, {
+    const res = await fetch(`${BACKEND_URL}/api/tasks/${id}`, {
       method: "DELETE",
     });
 
