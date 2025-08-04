@@ -8,9 +8,9 @@ document.addEventListener("DOMContentLoaded", function () {
   async function loadCounts() {
     try {
       const [empRes, deptRes, leaveRes] = await Promise.all([
-        fetch("http://localhost:5000/api/employees/count"),
-        fetch("http://localhost:5000/api/departments/count"),
-        fetch("http://localhost:5000/api/leave-requests/pending-count"),
+        fetch(`${BACKEND_URL}/api/employees/count`),
+        fetch(`${BACKEND_URL}/api/departments/count`),
+        fetch(`${BACKEND_URL}/api/leave-requests/pending-count`),
       ]);
 
       if (!empRes.ok || !deptRes.ok || !leaveRes.ok)
@@ -69,7 +69,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
 async function loadAdminName() {
   try {
-    const res = await fetch(`http://localhost:5000/api/users/${userId}`);
+    const res = await fetch(`${BACKEND_URL}/api/users/${userId}`);
     if (!res.ok) throw new Error("Failed to fetch admin details");
 
     const data = await res.json();
