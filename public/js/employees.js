@@ -71,7 +71,7 @@ async function saveEmployee(event) {
     const url =
       index === ""
         ? `${BACKEND_URL}/api/employees`
-        : `http://localhost:5000/api/employees/${employees[index].id}`;
+        : `${BACKEND_URL}/api/employees/${employees[index].id}`;
     const method = index === "" ? "POST" : "PUT";
 
     const res = await fetch(url, {
