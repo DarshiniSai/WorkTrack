@@ -9,7 +9,7 @@ window.addEventListener("DOMContentLoaded", loadDepartments);
 
 async function loadDepartments() {
   try {
-    const res = await fetch("http://localhost:5000/api/departments");
+    const res = await fetch(`${BACKEND_URL}/api/departments`);
     departments = await res.json();
     console.log(departments);
     updateDepartmentTable();
@@ -38,14 +38,14 @@ async function saveDepartment(event) {
   try {
     let res;
     if (index === "") {
-      res = await fetch("http://localhost:5000/api/departments", {
+      res = await fetch(`${BACKEND_URL}/api/departments`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(departmentData),
       });
     } else {
       const deptId = departments[index].id;
-      res = await fetch(`http://localhost:5000/api/departments/${deptId}`, {
+      res = await fetch(`${BACKEND_URL}/api/departments/${deptId}`, {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(departmentData),
@@ -100,7 +100,7 @@ async function removeDepartment(index) {
 
   try {
     const deptId = departments[index].id;
-    const res = await fetch(`http://localhost:5000/api/departments/${deptId}`, {
+    const res = await fetch(`${BACKEND_URL}/api/departments/${deptId}`, {
       method: "DELETE",
     });
 
