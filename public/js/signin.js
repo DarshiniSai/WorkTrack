@@ -22,7 +22,7 @@ window.handleGoogleLogin = async function (response) {
     const payload = JSON.parse(atob(credential.split('.')[1]));
     const email = payload.email;
 
-    const res = await fetch("http://localhost:5000/api/google-login", {
+    const res = await fetch(`${BACKEND_URL}/api/google-login`, {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ email }),
@@ -84,7 +84,7 @@ document.addEventListener("DOMContentLoaded", function () {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/login", {
+      const response = await fetch(`${BACKEND_URL}/api/login`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
