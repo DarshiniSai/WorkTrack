@@ -26,7 +26,7 @@ async function loadAttendance() {
   });
 
   try {
-    const res = await fetch(`http://localhost:5000/api/attendance/admin?${params.toString()}`);
+    const res = await fetch(`${BACKEND_URL}/api/attendance/admin?${params.toString()}`);
     const data = await res.json();
     renderTable(data);
   } catch (err) {
@@ -74,7 +74,7 @@ async function updateAttendance(e) {
   const check_out = document.getElementById("edit-checkout").value;
 
   try {
-    const res = await fetch(`http://localhost:5000/api/attendance/${id}`, {
+    const res = await fetch(`${BACKEND_URL}/api/attendance/${id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ status, check_in, check_out })
