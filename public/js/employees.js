@@ -16,7 +16,7 @@ window.addEventListener("DOMContentLoaded", () => {
 
 async function loadEmployees() {
   try {
-    const res = await fetch("http://localhost:5000/api/employees");
+    const res = await fetch(`${BACKEND_URL}/api/employees`);
     const data = await res.json();
     employees = data;
     updateTable();
@@ -27,7 +27,7 @@ async function loadEmployees() {
 
 async function loadDepartments() {
   try {
-    const res = await fetch("http://localhost:5000/api/departments");
+    const res = await fetch(`${BACKEND_URL}/api/departments`);
     const data = await res.json();
     departments = data;
     console.log("departments", departments);
@@ -70,7 +70,7 @@ async function saveEmployee(event) {
   try {
     const url =
       index === ""
-        ? "http://localhost:5000/api/employees"
+        ? `${BACKEND_URL}/api/employees`
         : `http://localhost:5000/api/employees/${employees[index].id}`;
     const method = index === "" ? "POST" : "PUT";
 
@@ -180,7 +180,7 @@ function handleCSVUpload(event) {
 
     console.log("bulk emp", bulkEmployees);
     try {
-      const res = await fetch("http://localhost:5000/api/employees/bulk-add", {
+      const res = await fetch(`${BACKEND_URL}api/employees/bulk-add`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -207,7 +207,7 @@ async function removeEmployee(index) {
 
   try {
     const res = await fetch(
-      `http://localhost:5000/api/employees/${employees[index].id}`,
+      `${BACKEND_URL}/api/employees/${employees[index].id}`,
       {
         method: "DELETE",
       }
