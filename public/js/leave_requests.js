@@ -6,7 +6,7 @@ window.addEventListener('DOMContentLoaded', () => {
 
 async function loadLeaveRequests() {
   try {
-    const res = await fetch('http://localhost:5000/api/leave-requests');
+    const res = await fetch(`${BACKEND_URL}/api/leave-requests`);
     const data = await res.json();
 
     leaveRequestsContainer.innerHTML = '';
@@ -68,7 +68,7 @@ function updateStatus(id, newStatus) {
   const remarkBox = document.getElementById(`remark-${id}`);
   const remark = remarkBox ? remarkBox.value.trim() : null;
 
-  fetch(`http://localhost:5000/api/leave-requests/${id}/status`, {
+  fetch(`${BACKEND_URL}/api/leave-requests/${id}/status`, {
     method: 'PUT',
     headers: {
       'Content-Type': 'application/json',
