@@ -16,7 +16,7 @@ function getCurrentMonthYear() {
 
 async function fetchPayrolls() {
   try {
-    const res = await fetch(`http://localhost:5000/api/payrolls/employee/${userId}`);
+    const res = await fetch(`${BACKEND_URL}/api/payrolls/employee/${userId}`);
     payrolls = await res.json();
     setDefaultFilters();
     renderPayrolls();
