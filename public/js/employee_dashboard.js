@@ -4,7 +4,7 @@ document.addEventListener("DOMContentLoaded", () => {
   // Load employee name
   async function loadEmployeeName() {
     try {
-      const res = await fetch(`http://localhost:5000/api/users/${userId}`);
+      const res = await fetch(`${BACKEND_URL}/api/users/${userId}`);
       if (!res.ok) throw new Error("User not found");
 
       const user = await res.json();
@@ -21,7 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
   async function loadAttendanceRates() {
     try {
       const res = await fetch(
-        `http://localhost:5000/api/attendance/summary/${userId}`
+        `${BACKEND_URL}/api/attendance/summary/${userId}`
       );
       const data = await res.json();
 
