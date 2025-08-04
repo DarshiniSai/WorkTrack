@@ -15,7 +15,7 @@ document.getElementById("changePassForm").addEventListener("submit", function (e
 
 async function loadProfile() {
   try {
-    const res = await fetch(`http://localhost:5000/api/users/${userId}`);
+    const res = await fetch(`${BACKEND_URL}/api/users/${userId}`);
     const user = await res.json();
 
     document.getElementById("name").value = user.name;
@@ -56,7 +56,7 @@ document.getElementById("profileForm").addEventListener("submit", async function
   }
 
   try {
-    const res = await fetch(`http://localhost:5000/api/users/${userId}`, {
+    const res = await fetch(`${BACKEND_URL}/api/users/${userId}`, {
       method: "PUT",
       body: formData,
     });
@@ -78,7 +78,7 @@ async function changePassword() {
 
   try {
     const res = await fetch(
-      `http://localhost:5000/api/users/${userId}/change-password`,
+      `${BACKEND_URL}/api/users/${userId}/change-password`,
       {
         method: "PUT",
         headers: { "Content-Type": "application/json" },
